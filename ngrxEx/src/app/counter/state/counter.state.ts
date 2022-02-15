@@ -1,5 +1,6 @@
 export interface CounterState {
   counter: number;
+  channelName: string
 }
 
 // Burada tanımlanan interface ile refactoring yapılmıştır
@@ -7,5 +8,6 @@ export interface CounterState {
 
 //burada interface'den kalıtım alındı
 export const initialState: CounterState = {
-  counter: 0
+  counter: 0,
+  channelName: 'Leela Web Dev',
 }

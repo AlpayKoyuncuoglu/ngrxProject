@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { customIncrement, decrement, increment, reset } from "./counter.actions";
+import { changeChannelName, customIncrement, decrement, increment, reset } from "./counter.actions";
 import { initialState } from "./counter.state";
 
 const _counterReducer = createReducer(
@@ -28,6 +28,12 @@ const _counterReducer = createReducer(
     return {
       ...state,
       counter: state.counter + (action.value)
+    }
+  }),
+  on(changeChannelName, (state, action) => {
+    return {
+      ...state,
+      channelName: 'Modified Leela Web Dev'
     }
   })
 );

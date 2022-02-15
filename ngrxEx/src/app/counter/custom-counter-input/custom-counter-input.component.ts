@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { customIncrement } from '../state/counter.actions';
+import { changeChannelName, customIncrement } from '../state/counter.actions';
 import { CounterState } from '../state/counter.state';
 
 @Component({
@@ -11,15 +11,27 @@ import { CounterState } from '../state/counter.state';
 export class CustomCounterInputComponent implements OnInit {
 
   value: number;
+  channelName: string;
 
   constructor(private store: Store<{ counter: CounterState }>) { }
 
   ngOnInit(): void {
+    this.store.select('counter').subscribe(data => {
+      //burada data.counter yazmak istediğimde tip güvenli çalışma sayesinde hata verdi.
+      this.channelName = data.channelName;
+      //bu logun eklenmesinin sebebi selector kullanılmamasının dezavantajını görmektir
+      console.log("channel name observable called")
+    })
   }
 
   onAdd() {
     this.store.dispatch(customIncrement({ value: +this.value }))
     console.log(this.value);
   }
+
+  onChangeChannelName() {
+    this.store.dispatch(changeChannelName());
+  }
+
 
 }
