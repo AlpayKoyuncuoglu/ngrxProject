@@ -1,5 +1,5 @@
 import { createReducer } from "@ngrx/store"
-import { initialState } from "src/app/counter/state/counter.state"
+import { initialState } from "./posts.state";
 
 const _postReducer=createReducer(initialState)
 
