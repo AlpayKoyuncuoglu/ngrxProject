@@ -26,7 +26,6 @@ export class AddPostComponent implements OnInit {
 
 
   showDescriptionErrors() {
-    debugger;
     const descriptionForm = this.postForm.get('description');
 
     if (descriptionForm.touched && !descriptionForm.valid) {
