@@ -38,7 +38,7 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
     AppRoutingModule,
     ReactiveFormsModule,
     // StoreModule.forRoot({ counter: counterReducer }),
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     })
