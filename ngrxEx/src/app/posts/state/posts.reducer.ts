@@ -17,6 +17,11 @@ const _postsReducer = createReducer(
   on(updatePost, (state, action) => {
 
     const updatedPosts = state.posts.map((post) => {
+      console.log("11111111111111111111")
+      console.log(updatePost);
+      console.log(post);
+      console.log("22222222222222222222")
+
       return action.post.id === post.id ? action.post : post;
     });
 
@@ -27,6 +32,11 @@ const _postsReducer = createReducer(
   }),
   on(deletePost, (state, { id }) => {
     const updatedPosts = state.posts.filter(post => {
+      console.log("11111111111111111111")
+      console.log(updatePost);
+      console.log(post);
+      console.log("22222222222222222222")
+
       return post.id !== id;
     })
     return {
