@@ -18,6 +18,8 @@ import { environment } from 'src/environments/environment';
 import { appReducer } from './store/app.state';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { EffectsModule } from '@ngrx/effects';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
     // CustomCounterInputComponent,
     HomeComponent,
     HeaderComponent,
+
     // PostsListComponent,
     // AddPostComponent,
     // EditPostComponent
@@ -37,7 +40,9 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     // StoreModule.forRoot({ counter: counterReducer }),
+    EffectsModule.forRoot([]),
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
