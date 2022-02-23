@@ -9,7 +9,20 @@ import { postsReducer } from './state/posts.reducer';
 import { StoreModule } from '@ngrx/store';
 import { POST_STATE_NAME } from './state/posts.selector';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: PostsListComponent,
+    children: [
+      { path: 'add', component: AddPostComponent },
+      {
+        path: 'edit/:id',
+        component: EditPostComponent,
+      },
+    ],
+  },
+];
+
 
 @NgModule({
   declarations: [PostsListComponent, AddPostComponent, EditPostComponent],
